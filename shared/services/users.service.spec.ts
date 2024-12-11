@@ -5,23 +5,23 @@ import { UtilsService } from "./utils.service";
 
 describe('UsersService',()=>{
   let usersService:UsersService;
-  // let utilsService:UtilsService;
+  // let utilsService:UtilsService; - spyon
 
   // let utilsServiceMock = {
   //   pluck: jest.fn(),
-  // }
+  // } - mocking
 
   beforeEach( ()=>{
     TestBed.configureTestingModule({
       providers: [
         UsersService, 
         // UtilsService
-        // {provide: UtilsService, useValue: utilsServiceMock}
+        // {provide: UtilsService, useValue: utilsServiceMock} - mocking method
 
       ]
     });
     usersService =TestBed.inject(UsersService);
-    // utilsService = TestBed.inject(UtilsService);
+    // utilsService = TestBed.inject(UtilsService); -spyon Method
   });
   it('service should be created',()=>{
     expect(usersService).toBeTruthy();
@@ -48,6 +48,8 @@ describe('UsersService',()=>{
       expect(usersService.users$.getValue()).toEqual([]);
     });
   });
+
+// mocking and spying 
 
   // describe('getUsers',()=>{
   //   it('should return an array of user names',()=>{
